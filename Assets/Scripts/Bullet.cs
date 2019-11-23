@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour {
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
             IncreaseTextUiScore();
             
-            
+           
             col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             Destroy(gameObject);
 

@@ -32,16 +32,16 @@ public class AlienBullet : MonoBehaviour {
 
             Destroy(gameObject);
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            DestroyObject(col.gameObject, 0.5f);
-#pragma warning restore CS0618 // Type or member is obsolete
+
+            Object.Destroy(col.gameObject, 0.3f);
+
         }
         if (col.tag == "Shield")
         {
             Destroy(gameObject);
-#pragma warning disable CS0618 // Type or member is obsolete
-            DestroyObject(col.gameObject);
-#pragma warning restore CS0618 // Type or member is obsolete
+
+            Object.Destroy(col.gameObject);
+
         }
     }
     void OnBecomeInvisible()
