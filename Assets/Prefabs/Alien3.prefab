@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  gameController: {fileID: 4964766860632890100, guid: 20cc8524d53b42f4fbba06572a097bfa,
+    type: 3}
   startingImage: {fileID: 21300000, guid: 1035bd1c969ce7a4b955fd5af2479975, type: 3}
   altImage: {fileID: 21300000, guid: 0586ea2d5fbba894faec7f43f090fac4, type: 3}
   secBeforeSpriteChange: 0.5

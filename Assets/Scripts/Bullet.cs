@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour {
@@ -11,13 +12,20 @@ public class Bullet : MonoBehaviour {
 
     public Sprite explodedAlienImage;
 
+    private bool checkEnd = false;
+    public float secsToNext = 0.3f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
         
         rigidBody.velocity = Vector2.up * speed;
-	}
+
+       
+    }
+
+
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,18 +33,21 @@ public class Bullet : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-       if(col.tag=="Alien")
+        if (col.tag == "Alien")
         {
-
+            //Inny sposob potrzebnyyyy- sprawdzanie nie countem a pobieranie gameobjecta
+            col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
             IncreaseTextUiScore(10);
-            
-           
-            col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             Destroy(gameObject);
-
-
-            Object.Destroy(col.gameObject, 0.5f);
+            Object.Destroy(col.gameObject);
+            AlienDied();
+            print("Po zniszczeniu:" + Alien.alienCount);
+            if (Alien.alienCount <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            checkEnd = true;
 
         }
         if (col.tag == "AlienBoss")
@@ -76,6 +87,13 @@ public class Bullet : MonoBehaviour {
 
     }
 
+
+
+    void AlienDied()
+    {
+        Alien.alienCount--;
+        print("Alient Count after dead: " + Alien.alienCount);
+    }
 
 
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Alien : MonoBehaviour {
 
     public float speed = 10;
@@ -17,6 +17,8 @@ public class Alien : MonoBehaviour {
     public float secBeforeSpriteChange = 0.5f;
 
     public GameObject alienBullet;
+
+    public static int alienCount=0;
 
     public float minFireRateTime = 1.0f;
     public float maxFireRateTime = 1.0f;
@@ -36,7 +38,16 @@ public class Alien : MonoBehaviour {
 
 
     }
-	
+
+    private void Awake()
+    {
+        
+        alienCount++;
+        print("Spawned alien, Count: " + alienCount);
+    }
+
+
+
     //Turn in opposite direction
     void Turn(int direction)
     {
@@ -98,7 +109,11 @@ public class Alien : MonoBehaviour {
             baseFireWaitTime = baseFireWaitTime + Random.Range(minFireRateTime, maxFireRateTime);
             Instantiate(alienBullet, transform.position, Quaternion.identity);
         }
+
+        
+
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
