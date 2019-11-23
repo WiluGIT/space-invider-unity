@@ -10,10 +10,12 @@ public class Bullet : MonoBehaviour {
     private Rigidbody2D rigidBody;
 
     public Sprite explodedAlienImage;
+
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
-
+        
         rigidBody.velocity = Vector2.up * speed;
 	}
 
@@ -28,19 +30,21 @@ public class Bullet : MonoBehaviour {
 
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
             IncreaseTextUiScore();
+            
+            
             col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             Destroy(gameObject);
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            DestroyObject(col.gameObject, 0.5f);
-#pragma warning restore CS0618 // Type or member is obsolete
+
+            Object.Destroy(col.gameObject, 0.5f);
+
         }
        if(col.tag=="Shield")
         {
             Destroy(gameObject);
-#pragma warning disable CS0618 // Type or member is obsolete
-            DestroyObject(col.gameObject);
-#pragma warning restore CS0618 // Type or member is obsolete
+
+            Object.Destroy(col.gameObject);
+
         }
     }
 

@@ -23,7 +23,7 @@ public class Alien : MonoBehaviour {
     public float baseFireWaitTime = 3.0f;
 
     public Sprite explodedShipImage;
-
+    
     // Use this for initialization
     void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -106,6 +106,7 @@ public class Alien : MonoBehaviour {
         {
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.shipExplosion);
             collision.GetComponent<SpriteRenderer>().sprite = explodedShipImage;
+
             Destroy(gameObject);
 
             Object.Destroy(collision.gameObject, 0.5f);

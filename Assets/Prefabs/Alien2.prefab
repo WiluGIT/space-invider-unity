@@ -150,4 +150,4 @@ MonoBehaviour:
   minFireRateTime: 1
   maxFireRateTime: 1
   baseFireWaitTime: 3
-  explodedShipImage: {fileID: 21300014, guid: b011eab9bd3aceb44b3ea6b7b940a6d6, type: 3}
+  explodedShipImage: {fileID: 21300006, guid: 213928225c0f72f4a98d90cdb79695ef, type: 3}

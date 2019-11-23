@@ -10,8 +10,10 @@ public class AlienBullet : MonoBehaviour {
     public float speed = 30;
 
     public Sprite explodedShipImage;
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
 
         rigidBody.velocity = Vector2.down * speed;
@@ -27,6 +29,7 @@ public class AlienBullet : MonoBehaviour {
         {
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.shipExplosion);
             col.GetComponent<SpriteRenderer>().sprite = explodedShipImage;
+
             Destroy(gameObject);
 
 #pragma warning disable CS0618 // Type or member is obsolete
@@ -45,5 +48,5 @@ public class AlienBullet : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-    
+
 }
