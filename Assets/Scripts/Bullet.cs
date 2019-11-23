@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour {
         {
 
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
-            IncreaseTextUiScore();
+            IncreaseTextUiScore(10);
             
            
             col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
@@ -39,7 +39,21 @@ public class Bullet : MonoBehaviour {
             Object.Destroy(col.gameObject, 0.5f);
 
         }
-       if(col.tag=="Shield")
+        if (col.tag == "AlienBoss")
+        {
+
+            SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
+            IncreaseTextUiScore(100);
+
+
+            col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
+            Destroy(gameObject);
+
+
+            Object.Destroy(col.gameObject, 0.5f);
+
+        }
+        if (col.tag=="Shield")
         {
             Destroy(gameObject);
 
@@ -53,11 +67,11 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    void IncreaseTextUiScore()
+    void IncreaseTextUiScore(int points)
     {
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
         int score = int.Parse(textUIComp.text);
-        score += 10;
+        score += points;
         textUIComp.text = score.ToString();
 
     }
