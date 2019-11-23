@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: b011eab9bd3aceb44b3ea6b7b940a6d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1035bd1c969ce7a4b955fd5af2479975, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 10}
+    oldSize: {x: 3.17, y: 2.35}
     newSize: {x: 16, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  startingImage: {fileID: 21300006, guid: b011eab9bd3aceb44b3ea6b7b940a6d6, type: 3}
-  altImage: {fileID: 21300018, guid: b011eab9bd3aceb44b3ea6b7b940a6d6, type: 3}
+  startingImage: {fileID: 21300000, guid: 1035bd1c969ce7a4b955fd5af2479975, type: 3}
+  altImage: {fileID: 21300000, guid: 0586ea2d5fbba894faec7f43f090fac4, type: 3}
   secBeforeSpriteChange: 0.5
   alienBullet: {fileID: 1451703019901192, guid: 473be0fe1880d174bba33384e5542769,
     type: 3}
