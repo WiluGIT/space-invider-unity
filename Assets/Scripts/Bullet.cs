@@ -45,15 +45,16 @@ public class Bullet : MonoBehaviour {
         {
 
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
-            IncreaseTextUiScore(100);
-
-
-            col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             Destroy(gameObject);
+            if (GameObject.FindGameObjectsWithTag("Heart").Length > 0)
+            {
+                Object.Destroy(GameObject.FindGameObjectsWithTag("Heart")[GameObject.FindGameObjectsWithTag("Heart").Length - 1]);
 
-
-            Object.Destroy(col.gameObject, 0.5f);
-
+            }
+            else if (GameObject.FindGameObjectsWithTag("Heart").Length == 0)
+            {
+                Destroy(GameObject.FindGameObjectsWithTag("AlienBoss")[0]);
+            }
         }
         if (col.tag=="Shield")
         {

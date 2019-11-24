@@ -8,13 +8,15 @@ public class AlienBoss : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
-    private SpriteRenderer spriteRenderer;
-
     public GameObject alienBullet;
+
+    public GameObject bossHeart;
+    private GameObject healthPanel;
 
     public float minFireRateTime = 1.0f;
     public float maxFireRateTime = 1.0f;
-    public float baseFireWaitTime = 3.0f;
+    public float baseFireWaitTime = 1.0f;
+    public float bossHeartCount = 10;
 
     public Sprite explodedShipImage;
 
@@ -23,11 +25,19 @@ public class AlienBoss : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(1, 0) * speed;
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        healthPanel = GameObject.FindGameObjectWithTag("BossHealth");
 
         baseFireWaitTime = baseFireWaitTime + Random.Range(minFireRateTime, maxFireRateTime);
 
+        float delX = 0;
+
+        for(int i = 0; i < bossHeartCount; i++)
+        {
+            Vector3 vector3HealthPanel = new Vector3(healthPanel.transform.position.x+delX, healthPanel.transform.position.y);
+            Instantiate(bossHeart, vector3HealthPanel, Quaternion.identity);
+            delX += 7f;
+
+        }
     }
 
 
@@ -63,7 +73,6 @@ public class AlienBoss : MonoBehaviour
         {
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
             //Hearth system TODO
-            Destroy(gameObject);
         }
     }
 

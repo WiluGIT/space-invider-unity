@@ -4,40 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class GameControllerS2 : MonoBehaviour
 {
-    int alienCount;
-    
+
+    int bossLifeCount;
 
     private void Awake()
     {
-        if(GameObject.FindGameObjectsWithTag("Alien") != null)
+        if (GameObject.FindGameObjectsWithTag("Heart") != null)
         {
-            alienCount = GameObject.FindGameObjectsWithTag("Alien").Length;
+            bossLifeCount = GameObject.FindGameObjectsWithTag("Heart").Length;
         }
-        
 
- 
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (alienCount> GameObject.FindGameObjectsWithTag("Alien").Length)
+
+        if (bossLifeCount > GameObject.FindGameObjectsWithTag("Heart").Length)
         {
-            alienCount--;
-            IncreaseTextUiScore(10);
+            bossLifeCount--;
+            IncreaseTextUiScore(50);
+
+
         }
 
 
-
-        if (GameObject.FindGameObjectsWithTag("Alien").Length == 0)
+        if (GameObject.FindGameObjectsWithTag("AlienBoss").Length == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            
-        }
 
+        }
     }
 
 

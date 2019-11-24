@@ -144,7 +144,11 @@ MonoBehaviour:
   speed: 10
   alienBullet: {fileID: 1451703019901192, guid: 473be0fe1880d174bba33384e5542769,
     type: 3}
+  bossHeart: {fileID: 3852336875179953633, guid: 27fd2111a38217240bbe0d87aa0650ce,
+    type: 3}
+  healthPanel: {fileID: 0}
   minFireRateTime: 1
   maxFireRateTime: 1
   baseFireWaitTime: 3
+  bossHeartCount: 10
   explodedShipImage: {fileID: 21300006, guid: 213928225c0f72f4a98d90cdb79695ef, type: 3}
