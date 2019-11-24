@@ -12,8 +12,7 @@ public class Bullet : MonoBehaviour {
 
     public Sprite explodedAlienImage;
 
-    private bool checkEnd = false;
-    public float secsToNext = 0.3f;
+
 
     // Use this for initialization
     void Start () {
@@ -35,19 +34,11 @@ public class Bullet : MonoBehaviour {
         }
         if (col.tag == "Alien")
         {
-            //Inny sposob potrzebnyyyy- sprawdzanie nie countem a pobieranie gameobjecta
+
             col.GetComponent<SpriteRenderer>().sprite = explodedAlienImage;
             SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienDies);
-            IncreaseTextUiScore(10);
             Destroy(gameObject);
-            Object.Destroy(col.gameObject);
-            AlienDied();
-            print("Po zniszczeniu:" + Alien.alienCount);
-            if (Alien.alienCount <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            checkEnd = true;
+            Object.Destroy(col.gameObject, 0.3f);
 
         }
         if (col.tag == "AlienBoss")
@@ -89,11 +80,6 @@ public class Bullet : MonoBehaviour {
 
 
 
-    void AlienDied()
-    {
-        Alien.alienCount--;
-        print("Alient Count after dead: " + Alien.alienCount);
-    }
 
 
 

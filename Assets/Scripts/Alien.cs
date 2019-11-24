@@ -18,7 +18,6 @@ public class Alien : MonoBehaviour {
 
     public GameObject alienBullet;
 
-    public static int alienCount=0;
 
     public float minFireRateTime = 1.0f;
     public float maxFireRateTime = 1.0f;
@@ -37,13 +36,6 @@ public class Alien : MonoBehaviour {
         baseFireWaitTime = baseFireWaitTime + Random.Range(minFireRateTime, maxFireRateTime);
 
 
-    }
-
-    private void Awake()
-    {
-        
-        alienCount++;
-        print("Spawned alien, Count: " + alienCount);
     }
 
 
