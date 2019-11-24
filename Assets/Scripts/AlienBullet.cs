@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AlienBullet : MonoBehaviour 
 {
@@ -32,6 +33,8 @@ public class AlienBullet : MonoBehaviour
 
 
             Object.Destroy(col.gameObject, 0.3f);
+
+            SceneManager.LoadScene(0);
 
         }
         if (col.tag == "Shield")

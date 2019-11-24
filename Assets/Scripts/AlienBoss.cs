@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AlienBoss : MonoBehaviour
 {
@@ -96,7 +97,7 @@ public class AlienBoss : MonoBehaviour
             Destroy(gameObject);
 
             Object.Destroy(collision.gameObject, 0.5f);
-
+            SceneManager.LoadScene(0);
         }
     }
 }

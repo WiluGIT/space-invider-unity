@@ -114,7 +114,7 @@ public class Alien : MonoBehaviour {
             Destroy(gameObject);
 
             Object.Destroy(collision.gameObject, 0.5f);
-
+            SceneManager.LoadScene(0);
         }
     }
 }
