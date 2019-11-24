@@ -15,22 +15,15 @@ public class GameControllerS2 : MonoBehaviour
         {
             bossLifeCount = GameObject.FindGameObjectsWithTag("Heart").Length;
         }
-
+        print("Odczytana: " + ScoreScript.instance.score.ToString());
+        var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+        textUIComp.text = ScoreScript.instance.score.ToString();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
-        if (bossLifeCount > GameObject.FindGameObjectsWithTag("Heart").Length)
-        {
-            bossLifeCount--;
-            IncreaseTextUiScore(50);
-
-
-        }
-
 
         if (GameObject.FindGameObjectsWithTag("AlienBoss").Length == 0)
         {
@@ -42,10 +35,12 @@ public class GameControllerS2 : MonoBehaviour
 
     void IncreaseTextUiScore(int points)
     {
+        ScoreScript.instance.score += points;
+        print(ScoreScript.instance.score);
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        int score = int.Parse(textUIComp.text);
-        score += points;
-        textUIComp.text = score.ToString();
+        //int score = int.Parse(textUIComp.text);
+        //score += points;
+        textUIComp.text = ScoreScript.instance.score.ToString();
 
     }
 }

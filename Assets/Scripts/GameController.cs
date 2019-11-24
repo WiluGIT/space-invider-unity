@@ -43,10 +43,12 @@ public class GameController : MonoBehaviour
 
     void IncreaseTextUiScore(int points)
     {
+        ScoreScript.instance.score += points;
+        print(ScoreScript.instance.score);
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        int score = int.Parse(textUIComp.text);
-        score += points;
-        textUIComp.text = score.ToString();
+        //int score = int.Parse(textUIComp.text);
+        //score += points;
+        textUIComp.text = ScoreScript.instance.score.ToString();
 
     }
 }

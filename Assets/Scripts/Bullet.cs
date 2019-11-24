@@ -49,6 +49,7 @@ public class Bullet : MonoBehaviour {
             if (GameObject.FindGameObjectsWithTag("Heart").Length > 0)
             {
                 Object.Destroy(GameObject.FindGameObjectsWithTag("Heart")[GameObject.FindGameObjectsWithTag("Heart").Length - 1]);
+                IncreaseTextUiScore(10);
 
             }
             else if (GameObject.FindGameObjectsWithTag("Heart").Length == 0)
@@ -73,13 +74,13 @@ public class Bullet : MonoBehaviour {
     void IncreaseTextUiScore(int points)
     {
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        int score = int.Parse(textUIComp.text);
-        score += points;
-        textUIComp.text = score.ToString();
+        ScoreScript.instance.score = int.Parse(GameObject.Find("Score").GetComponent<Text>().text);
+
+        ScoreScript.instance.score += points;
+        
+        textUIComp.text = ScoreScript.instance.score.ToString();
 
     }
-
-
 
 
 
