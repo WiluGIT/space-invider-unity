@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     int alienCount;
-
+    //GameObject[] aliens;
     private void Awake()
     {
         alienCount = GameObject.FindGameObjectsWithTag("Alien").Length;
@@ -17,8 +17,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Alien counter:"+alienCount);
-        print("Alien rzeczywisty:" + GameObject.FindGameObjectsWithTag("Alien").Length);
         if (alienCount> GameObject.FindGameObjectsWithTag("Alien").Length)
         {
             alienCount--;
@@ -28,6 +26,7 @@ public class GameController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Alien").Length == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
         }
     }
 

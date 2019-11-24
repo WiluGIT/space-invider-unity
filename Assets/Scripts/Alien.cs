@@ -95,14 +95,11 @@ public class Alien : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(Time.time>baseFireWaitTime)
+        if(Time.timeSinceLevelLoad>baseFireWaitTime)
         {
-
             baseFireWaitTime = baseFireWaitTime + Random.Range(minFireRateTime, maxFireRateTime);
             Instantiate(alienBullet, transform.position, Quaternion.identity);
-        }
-
-        
+        }        
 
     }
 

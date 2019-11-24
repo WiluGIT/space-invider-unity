@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienBullet : MonoBehaviour {
-
-
-
+public class AlienBullet : MonoBehaviour 
+{
     private Rigidbody2D rigidBody;
     public float speed = 30;
 

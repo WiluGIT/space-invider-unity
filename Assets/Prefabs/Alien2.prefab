@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212236658340267920}
   - component: {fileID: 61170635228359436}
   - component: {fileID: 50260340229699658}
-  - component: {fileID: 114735266109112954}
+  - component: {fileID: 8817905309901891732}
   m_Layer: 11
   m_Name: Alien2
   m_TagString: Alien
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &114735266109112954
+--- !u!114 &8817905309901891732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,8 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  gameController: {fileID: 4964766860632890100, guid: 20cc8524d53b42f4fbba06572a097bfa,
-    type: 3}
   startingImage: {fileID: 21300000, guid: 429162958599e7d41b95c143e36adf92, type: 3}
   altImage: {fileID: 21300000, guid: e12e28579694b844a87737d78a5f8332, type: 3}
   secBeforeSpriteChange: 0.5
@@ -151,5 +149,4 @@ MonoBehaviour:
     type: 3}
   minFireRateTime: 1
   maxFireRateTime: 1
-  baseFireWaitTime: 3
   explodedShipImage: {fileID: 21300006, guid: 213928225c0f72f4a98d90cdb79695ef, type: 3}

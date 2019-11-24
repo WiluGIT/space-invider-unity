@@ -30,6 +30,7 @@ public class AlienBoss : MonoBehaviour
 
     }
 
+
     //Turn in opposite direction
     void Turn(int direction)
     {
@@ -68,7 +69,7 @@ public class AlienBoss : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time > baseFireWaitTime)
+        if (Time.timeSinceLevelLoad > baseFireWaitTime)
         {
 
             baseFireWaitTime = baseFireWaitTime + Random.Range(minFireRateTime, maxFireRateTime);
