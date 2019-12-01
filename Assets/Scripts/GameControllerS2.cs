@@ -39,8 +39,8 @@ public class GameControllerS2 : MonoBehaviour
 
         if (GameObject.FindGameObjectsWithTag("AlienBoss").Length == 0)
         {
+            Player.level++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
         }
     }
 

@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadPlayer()
     {
+
         PlayerData data = SaveSystem.LoadPlayer();
         Player.level = data.level;
         Player.score = data.score;
@@ -34,17 +35,26 @@ public class MainMenu : MonoBehaviour
 
         GameObject level1 = GameObject.Find("Canvas1/LoadGameMenu/Level1Button");
         GameObject level2 = GameObject.Find("Canvas1/LoadGameMenu/Level2Button");
+        GameObject level3 = GameObject.Find("Canvas1/LoadGameMenu/Level3Button");
 
-
-        if (Player.score == 0)
+        print("Aktulany player level: " + Player.level);
+        if (Player.level == 0)
         {
             level1.SetActive(true);
             level2.SetActive(false);
+            level3.SetActive(false);
         }
-        if (Player.score == 1)
+        if (Player.level == 1)
         {
             level1.SetActive(true);
             level2.SetActive(true);
+            level3.SetActive(false);
+        }
+        if (Player.level == 2)
+        {
+            level1.SetActive(true);
+            level2.SetActive(true);
+            level3.SetActive(true);
         }
 
     }

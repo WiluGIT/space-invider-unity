@@ -15,9 +15,21 @@ public class GameController : MonoBehaviour
         {
             alienCount = GameObject.FindGameObjectsWithTag("Alien").Length;
         }
-        
 
- 
+        if (ScoreScript.instance != null)
+        {
+            print("Odczytana: " + ScoreScript.instance.score.ToString());
+            var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+            textUIComp.text = ScoreScript.instance.score.ToString();
+        }
+        else if(SceneManager.GetActiveScene().buildIndex==5)
+        {
+
+            ScoreScript.instance.score = 140;
+            var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+            textUIComp.text = ScoreScript.instance.score.ToString();
+        }
+
     }
 
 
@@ -44,11 +56,15 @@ public class GameController : MonoBehaviour
 
     void IncreaseTextUiScore(int points)
     {
+        var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+        ScoreScript.instance.score = int.Parse(GameObject.Find("Score").GetComponent<Text>().text);
         ScoreScript.instance.score += points;
         Player.score = ScoreScript.instance.score;
-        print(ScoreScript.instance.score);
-        var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+        print("Aktualny player score: "+Player.score);
+
         textUIComp.text = ScoreScript.instance.score.ToString();
 
     }
+    
+
 }
