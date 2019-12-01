@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
 
         if (GameObject.FindGameObjectsWithTag("Alien").Length == 0)
         {
+            Player.level++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             
         }
@@ -44,10 +45,9 @@ public class GameController : MonoBehaviour
     void IncreaseTextUiScore(int points)
     {
         ScoreScript.instance.score += points;
+        Player.score = ScoreScript.instance.score;
         print(ScoreScript.instance.score);
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        //int score = int.Parse(textUIComp.text);
-        //score += points;
         textUIComp.text = ScoreScript.instance.score.ToString();
 
     }

@@ -15,9 +15,21 @@ public class GameControllerS2 : MonoBehaviour
         {
             bossLifeCount = GameObject.FindGameObjectsWithTag("Heart").Length;
         }
-        print("Odczytana: " + ScoreScript.instance.score.ToString());
-        var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        textUIComp.text = ScoreScript.instance.score.ToString();
+
+        if (ScoreScript.instance != null)
+        {
+            print("Odczytana: " + ScoreScript.instance.score.ToString());
+            var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+            textUIComp.text = ScoreScript.instance.score.ToString();
+        }
+        else
+        {
+
+            ScoreScript.instance.score = 40;
+            var textUIComp = GameObject.Find("Score").GetComponent<Text>();
+            textUIComp.text = ScoreScript.instance.score.ToString();
+        }
+
     }
 
 
@@ -36,10 +48,9 @@ public class GameControllerS2 : MonoBehaviour
     void IncreaseTextUiScore(int points)
     {
         ScoreScript.instance.score += points;
+        Player.score = ScoreScript.instance.score;
         print(ScoreScript.instance.score);
         var textUIComp = GameObject.Find("Score").GetComponent<Text>();
-        //int score = int.Parse(textUIComp.text);
-        //score += points;
         textUIComp.text = ScoreScript.instance.score.ToString();
 
     }

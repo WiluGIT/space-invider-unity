@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public GameObject loadMenu;
+
     public void PlayGame()
     {
+        Player.level = 0;
+        Player.score = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 
     public void NextLevel()
@@ -19,8 +22,42 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Player.level = data.level;
+        Player.score = data.score;
+        GameObject menu = GameObject.Find("Canvas1/MainMenu");
+        menu.SetActive(false);
+
+        loadMenu.SetActive(true);
+
+        GameObject level1 = GameObject.Find("Canvas1/LoadGameMenu/Level1Button");
+        GameObject level2 = GameObject.Find("Canvas1/LoadGameMenu/Level2Button");
+
+
+        if (Player.score == 0)
+        {
+            level1.SetActive(true);
+            level2.SetActive(false);
+        }
+        if (Player.score == 1)
+        {
+            level1.SetActive(true);
+            level2.SetActive(true);
+        }
+
+    }
+    public void LoadCertainLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
     public void QuitGame()
     {
+        Debug.Log("Level: " + Player.level);
+        Debug.Log("score: " + Player.score);
+        SaveSystem.SavePlayer();
         Application.Quit();
     }
 

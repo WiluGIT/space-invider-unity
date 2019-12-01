@@ -12,6 +12,7 @@ TagManager:
   - AlienBoss
   - BossHealth
   - Heart
+  - LoadGameMenu
   layers:
   - Default
   - TransparentFX

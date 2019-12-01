@@ -77,7 +77,7 @@ public class Bullet : MonoBehaviour {
         ScoreScript.instance.score = int.Parse(GameObject.Find("Score").GetComponent<Text>().text);
 
         ScoreScript.instance.score += points;
-        
+        Player.score = ScoreScript.instance.score;
         textUIComp.text = ScoreScript.instance.score.ToString();
 
     }
